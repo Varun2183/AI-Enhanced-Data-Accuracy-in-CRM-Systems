@@ -1,44 +1,52 @@
-# CRM AI Backend
+# AI-Enhanced Data Accuracy in CRM Systems
 
 ## Overview
-
-This project provides an AI-powered backend service for enhancing data accuracy in a CRM system. It utilizes FastAPI to create RESTful endpoints for data validation, sentiment analysis, missing data prediction, and AI model training.
+This project integrates an AI-powered backend with a dashboard frontend to enhance data accuracy in CRM systems. It uses FastAPI for the backend and React for the frontend, incorporating NLP models for tasks such as data validation, sentiment analysis, and missing data prediction.
 
 ## Features
-
-- **Data Validation**: Checks the correctness of email and phone inputs.
-- **Sentiment Analysis**: Analyzes customer feedback using a pretrained sentiment model.
-- **Missing Data Prediction**: Uses a text generation model to fill in missing customer details.
-- **Model Training**: Trains a machine learning model on a dataset to improve data accuracy.
+- **AI-Powered Data Validation**: Ensures email and phone accuracy.
+- **Sentiment Analysis**: Analyzes customer feedback.
+- **Missing Data Prediction**: Uses AI to fill in missing details.
+- **Model Training**: Allows training on new datasets.
+- **Dashboard**: Displays results with visualizations (graphs, logs, model training status).
 
 ## Project Structure
-
 ```
-crm_ai_backend/
-│── app/
-│   ├── main.py              # Main FastAPI application
-│   ├── models.py            # Pydantic models for request validation
-│   ├── services.py          # AI model processing (Sentiment, Text Generation, Training)
-│   ├── routes.py            # API routes
-│   ├── config.py            # Configuration settings
-│   └── __init__.py          # Makes 'app' a package
-│── requirements.txt         # Dependencies
-│── README.md                # Documentation
-│── .gitignore               # Ignore unnecessary files
+crm_ai_project/
+│── backend/
+│   ├── app/
+│   │   ├── main.py              # FastAPI application
+│   │   ├── models.py            # Pydantic models
+│   │   ├── services.py          # AI processing (sentiment, text generation, training)
+│   │   ├── routes.py            # API routes
+│   │   ├── config.py            # Config settings
+│   │   ├── __init__.py          # Package initializer
+│   ├── requirements.txt         # Backend dependencies
+│   ├── README.md                # Backend documentation
+│── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.js     # Main dashboard UI
+│   │   │   ├── Graphs.js        # Visual representation of data
+│   │   │   ├── Logs.js          # Training logs display
+│   │   │   ├── ModelStatus.js   # Training status component
+│   │   ├── App.js               # Main React app
+│   ├── public/
+│   ├── package.json             # Frontend dependencies
+│   ├── README.md                # Frontend documentation
+│── README.md                    # Combined project documentation
+│── .gitignore                    # Ignore unnecessary files
 ```
 
 ## Setup Instructions
-
 ### Prerequisites
+- Python 3.8+
+- Node.js 14+
 
-Ensure you have Python 3.8+ installed.
-
-### Installation
-
-1. Clone the repository:
+### Backend Setup
+1. Navigate to the backend directory:
    ```sh
-   git clone https://github.com/your-repo/crm_ai_backend.git
-   cd crm_ai_backend
+   cd backend
    ```
 2. Create a virtual environment and activate it:
    ```sh
@@ -49,29 +57,35 @@ Ensure you have Python 3.8+ installed.
    ```sh
    pip install -r requirements.txt
    ```
+4. Run the FastAPI server:
+   ```sh
+   uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+   ```
 
-### Running the API Server
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the frontend server:
+   ```sh
+   npm start
+   ```
 
-Start the FastAPI server using Uvicorn:
+### Accessing the Application
+- **API Endpoints**: `http://127.0.0.1:8000`
+- **Dashboard**: `http://localhost:3000`
 
-```sh
-uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-```
-
-The API will be available at `http://127.0.0.1:8000`.
-
-### API Endpoints
-
+## API Endpoints
 #### 1. Validate CRM Data
-
 - **Endpoint:** `POST /validate/`
-- **Request Body:**
+- **Request:**
   ```json
-  {
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "phone": "1234567890"
-  }
+  { "name": "John Doe", "email": "johndoe@example.com", "phone": "1234567890" }
   ```
 - **Response:**
   ```json
@@ -79,9 +93,8 @@ The API will be available at `http://127.0.0.1:8000`.
   ```
 
 #### 2. Sentiment Analysis
-
 - **Endpoint:** `POST /analyze-sentiment/`
-- **Request Body:**
+- **Request:**
   ```json
   { "feedback": "This product is amazing!" }
   ```
@@ -91,7 +104,6 @@ The API will be available at `http://127.0.0.1:8000`.
   ```
 
 #### 3. Predict Missing Data
-
 - **Endpoint:** `POST /predict-missing/`
 - **Response:**
   ```json
@@ -99,7 +111,6 @@ The API will be available at `http://127.0.0.1:8000`.
   ```
 
 #### 4. Train Model
-
 - **Endpoint:** `POST /train-model/`
 - **Response:**
   ```json
@@ -107,8 +118,14 @@ The API will be available at `http://127.0.0.1:8000`.
   ```
 
 ## Deployment on IBM Watson
-
 1. **Create an IBM Cloud Account** at [IBM Cloud](https://cloud.ibm.com/).
 2. **Provision an AI Model Deployment Service** in Watson Machine Learning.
 3. **Upload Your Model** (`trained_model/` directory) to IBM Watson.
 4. **Deploy and Test** the model using Watson API.
+
+## License
+This project is licensed under the MIT License.
+
+## Author
+[Your Name]
+
