@@ -1,4 +1,4 @@
-# CRM AI Project
+# AI-Enhanced-Data-Accuracy-in-CRM-Systems
 
 ## 📌 Overview
 This project is an **AI-powered CRM system** that enhances data accuracy, performs **sentiment analysis, customer segmentation, and model training** using **FastAPI, React, and machine learning models**.
