@@ -1,131 +1,87 @@
-# AI-Enhanced Data Accuracy in CRM Systems
+# CRM AI Project
 
-## Overview
-This project integrates an AI-powered backend with a dashboard frontend to enhance data accuracy in CRM systems. It uses FastAPI for the backend and React for the frontend, incorporating NLP models for tasks such as data validation, sentiment analysis, and missing data prediction.
+## 📌 Overview
+This project is an **AI-powered CRM system** that enhances data accuracy, performs **sentiment analysis, customer segmentation, and model training** using **FastAPI, React, and machine learning models**.
 
-## Features
-- **AI-Powered Data Validation**: Ensures email and phone accuracy.
-- **Sentiment Analysis**: Analyzes customer feedback.
-- **Missing Data Prediction**: Uses AI to fill in missing details.
-- **Model Training**: Allows training on new datasets.
-- **Dashboard**: Displays results with visualizations (graphs, logs, model training status).
+## 🚀 Features
+- ✅ **AI-Enhanced Data Validation**
+- 📊 **Sentiment Analysis using BERT**
+- 🔢 **Customer Segmentation with K-Means Clustering**
+- 🎓 **Custom AI Model Training for CRM Data**
+- 📈 **Interactive Dashboard with Graphs & Logs**
+- 🔌 **API Integration with FastAPI**
 
-## Project Structure
+---
+
+## 🏗️ Project Structure
 ```
 crm_ai_project/
-│── backend/
-│   ├── app/
-│   │   ├── main.py              # FastAPI application
-│   │   ├── models.py            # Pydantic models
-│   │   ├── services.py          # AI processing (sentiment, text generation, training)
-│   │   ├── routes.py            # API routes
-│   │   ├── config.py            # Config settings
-│   │   ├── __init__.py          # Package initializer
-│   ├── requirements.txt         # Backend dependencies
-│   ├── README.md                # Backend documentation
-│── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Dashboard.js     # Main dashboard UI
-│   │   │   ├── Graphs.js        # Visual representation of data
-│   │   │   ├── Logs.js          # Training logs display
-│   │   │   ├── ModelStatus.js   # Training status component
-│   │   ├── App.js               # Main React app
-│   ├── public/
-│   ├── package.json             # Frontend dependencies
-│   ├── README.md                # Frontend documentation
-│── README.md                    # Combined project documentation
-│── .gitignore                    # Ignore unnecessary files
+│── backend/                 # FastAPI Backend
+│   ├── app/                 # Application logic
+│   │   ├── main.py          # FastAPI main app
+│   │   ├── models.py        # Pydantic models
+│   │   ├── services.py      # AI model logic
+│   │   ├── routes.py        # API endpoints
+│   │   ├── config.py        # Configurations
+│   │   └── __init__.py      # Package initializer
+│   ├── requirements.txt     # Backend dependencies
+│   ├── README.md            # Backend documentation
+│── frontend/                # React Dashboard
+│   ├── src/                 # Source files
+│   │   ├── components/      # UI components
+│   │   ├── pages/           # Dashboard pages
+│   │   ├── services/        # API calls to backend
+│   │   ├── App.js           # Main React app
+│   │   ├── index.js         # Entry point
+│   ├── public/              # Static files
+│   ├── package.json         # Frontend dependencies
+│   ├── README.md            # Frontend documentation
+│── README.md                # Full project documentation
 ```
 
-## Setup Instructions
-### Prerequisites
-- Python 3.8+
-- Node.js 14+
+---
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```sh
-   cd backend
-   ```
-2. Create a virtual environment and activate it:
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
-4. Run the FastAPI server:
-   ```sh
-   uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-   ```
+## 🛠️ Installation & Setup
 
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```sh
-   cd frontend
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Start the frontend server:
-   ```sh
-   npm start
-   ```
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-repo/crm-ai-project.git
+cd crm-ai-project
+```
 
-### Accessing the Application
-- **API Endpoints**: `http://127.0.0.1:8000`
-- **Dashboard**: `http://localhost:3000`
+### 2️⃣ Backend Setup
+```sh
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+- API available at: **[http://localhost:8000/docs](http://localhost:8000/docs)**
 
-## API Endpoints
-#### 1. Validate CRM Data
-- **Endpoint:** `POST /validate/`
-- **Request:**
-  ```json
-  { "name": "John Doe", "email": "johndoe@example.com", "phone": "1234567890" }
-  ```
-- **Response:**
-  ```json
-  { "status": "Data is valid" }
-  ```
+### 3️⃣ Frontend Setup
+```sh
+cd frontend
+npm install
+npm start
+```
+- Dashboard available at: **[http://localhost:3000](http://localhost:3000)**
 
-#### 2. Sentiment Analysis
-- **Endpoint:** `POST /analyze-sentiment/`
-- **Request:**
-  ```json
-  { "feedback": "This product is amazing!" }
-  ```
-- **Response:**
-  ```json
-  { "sentiment": "POSITIVE" }
-  ```
+---
 
-#### 3. Predict Missing Data
-- **Endpoint:** `POST /predict-missing/`
-- **Response:**
-  ```json
-  { "name": "Suggested Name" }
-  ```
+## 🔥 Key API Endpoints
+| Endpoint                  | Method | Description |
+|---------------------------|--------|-------------|
+| `/validate/`              | POST   | Validate CRM data |
+| `/analyze-sentiment/`     | POST   | Sentiment Analysis |
+| `/predict-missing/`       | POST   | Predict missing data |
+| `/train-model/`           | POST   | Train a custom AI model |
 
-#### 4. Train Model
-- **Endpoint:** `POST /train-model/`
-- **Response:**
-  ```json
-  { "message": "Model training complete" }
-  ```
+---
 
-## Deployment on IBM Watson
-1. **Create an IBM Cloud Account** at [IBM Cloud](https://cloud.ibm.com/).
-2. **Provision an AI Model Deployment Service** in Watson Machine Learning.
-3. **Upload Your Model** (`trained_model/` directory) to IBM Watson.
-4. **Deploy and Test** the model using Watson API.
+## 🏆 Contributors
+- **Varun Yadav G** - Developer
+- **Abhishek P** - Developer
+- **Rishika Jha** - Developer
+- **Rachana S** - Developer
 
-## License
-This project is licensed under the MIT License.
-
-## Author
-[Your Name]
-
+---
+🚀 **Enhancing CRM Data with AI!** 🚀
