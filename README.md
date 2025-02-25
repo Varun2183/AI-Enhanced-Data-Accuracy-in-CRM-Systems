@@ -45,7 +45,7 @@ crm_ai_project/
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone [https://github.com/Varun2183/AI-Enhanced-Data-Accuracy-in-CRM-Systems.git]
+git clone https://github.com/Varun2183/AI-Enhanced-Data-Accuracy-in-CRM-Systems.git
 cd AI-Enhanced-Data-Accuracy-in-CRM-Systems
 ```
 
