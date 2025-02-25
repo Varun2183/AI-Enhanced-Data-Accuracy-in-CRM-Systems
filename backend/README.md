@@ -28,8 +28,8 @@ backend/
 ## 🚀 Installation & Setup
 1️⃣ Clone the repository:
 ```sh
-git clone https://github.com/your-repo/crm-ai-backend.git
-cd crm-ai-backend
+git clone https://github.com/Varun2183/AI-Enhanced-Data-Accuracy-in-CRM-Systems.git
+cd AI-Enhanced-Data-Accuracy-in-CRM-Systems
 ```
 
 2️⃣ Install dependencies:
